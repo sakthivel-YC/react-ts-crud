@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import React from "react";
+import SimpleCard from "./components/simpleCard";
+import PostList from "./scenes/postList";
+import PostsForm from "./scenes/postsForm";
+import "./styles/app.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <Grid container flexDirection={"row"} spacing={3} padding={3}>
+        <Grid item lg={4} sm={12}>
+          <SimpleCard title={"Post Form"}>
+            <PostsForm />
+          </SimpleCard>
+        </Grid>
+        <Grid item lg={8} sm={12}>
+          <SimpleCard title={"Post List"}>
+            <PostList />
+          </SimpleCard>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 
