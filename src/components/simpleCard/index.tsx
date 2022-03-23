@@ -7,8 +7,12 @@ const SimpleCard = ({ title, children }: simpleCardProps) => {
   return (
     <Paper elevation={3}>
       <Box padding={2}>
-        <Typography variant='h5'>{title}</Typography>
-        <Box padding={"20px 0px"}>{children}</Box>
+        <Typography variant='h5' data-testid={"title-test"}>
+          {title}
+        </Typography>
+        <Box padding={"20px 0px"} data-testid={"child-prop-test"}>
+          {children}
+        </Box>
       </Box>
     </Paper>
   );

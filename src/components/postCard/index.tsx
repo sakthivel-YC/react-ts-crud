@@ -29,23 +29,27 @@ const PostCard = ({
           sx={{ padding: "10px 0px" }}
         >
           <Grid item>
-            <Typography variant='h5' sx={{ padding: "5px 10px" }}>
+            <Typography
+              variant='h5'
+              sx={{ padding: "5px 10px" }}
+              data-testid={"test-title"}
+            >
               {title}
             </Typography>
           </Grid>
           <Grid item>
             {loading ? (
               <Box padding={"0px 20px"}>
-                <CircularProgress size={30} />
+                <CircularProgress size={30} data-testid='spinner' />
               </Box>
             ) : (
               <Fragment>
-                {" "}
                 <Button
                   sx={{ padding: "7px 15px", margin: "0px 10px" }}
                   variant={"contained"}
                   color={"primary"}
                   onClick={() => handleEdit(postId)}
+                  data-testid={"button-edit"}
                 >
                   <Typography variant='body2'>edit</Typography>
                 </Button>
@@ -54,6 +58,7 @@ const PostCard = ({
                   variant={"contained"}
                   color={"error"}
                   onClick={() => handleDelete(postId)}
+                  data-testid={"button-delete"}
                 >
                   <Typography variant='body2'>delete</Typography>
                 </Button>
@@ -62,7 +67,11 @@ const PostCard = ({
           </Grid>
         </Grid>
         <Divider />
-        <Typography variant='body1' sx={{ padding: "10px" }}>
+        <Typography
+          variant='body1'
+          sx={{ padding: "10px" }}
+          data-testid={"test-body"}
+        >
           {body}
         </Typography>
       </Box>
