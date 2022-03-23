@@ -8,7 +8,7 @@ import {
   PUT_POST_IN_PROGRESS,
 } from "../../types/postsTypes";
 
-function* getPostListInProgress(action: any): any {
+export function* getPostListInProgress(action: any): any {
   try {
     const data = yield call(getPosts, action.payload);
     yield put(postActions.getPostListInSuccess(data));
@@ -17,7 +17,7 @@ function* getPostListInProgress(action: any): any {
   }
 }
 
-function* putPostInProgress(action: any): any {
+export function* putPostInProgress(action: any): any {
   try {
     yield call(putPosts, action.payload);
     yield put(
@@ -28,13 +28,11 @@ function* putPostInProgress(action: any): any {
   }
 }
 
-function* deletePostInProgress(action: any): any {
+export function* deletePostInProgress(action: any): any {
   try {
     yield call(deletePosts, action.payload);
     yield put(
-      postActions.deletePostInSuccess(
-        "The post data was successfully submitted"
-      )
+      postActions.deletePostInSuccess("The post  was successfully deleted!")
     );
   } catch (e) {
     yield put(postActions.deletePostInError(handleApiErrors(e)));
